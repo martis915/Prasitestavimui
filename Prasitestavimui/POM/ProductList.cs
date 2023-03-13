@@ -20,6 +20,10 @@ namespace Prasitestavimui.POM
         public void OpenFirstProduct() {
             generalMethods.ClickElementBy("(//a[contains(@class,'product-image')])[1]");
         }
+        public void OpenSEcondProduct()
+        {
+            generalMethods.ClickElementBy("(//a[contains(@class,'product-image')])[2]");
+        }
 
     }
 }

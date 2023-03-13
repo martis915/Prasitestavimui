@@ -24,6 +24,10 @@ namespace Prasitestavimui.POM
         {
             generalMethods.ClickElementBy("(//a[contains(@class,'product-image')])[2]");
         }
+        public void OpenThirdProduct()
+        {
+            generalMethods.ClickElementBy("(//a[contains(@class,'product-image')])[3]");
+        }
 
     }
 }

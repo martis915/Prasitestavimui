@@ -18,7 +18,7 @@ namespace Prasitestavimui.POM
         }
 
         public void OpenFirstProduct() {
-            generalMethods.ClickElementBy("(//a[contains(@class,'product-image')])[1]");
+            generalMethods.ClickElementByJS("(//a[contains(@class,'product-image')])[1]");
         }
         public void OpenSEcondProduct()
         {

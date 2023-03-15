@@ -30,7 +30,5 @@ namespace Prasitestavimui.POM
         {
             generalMethods.EnterTextBy(SearchFieldXpath, text);
         }
-
-
     }
 }

@@ -18,10 +18,8 @@ namespace Prasitestavimui
 {
     public class OtherCases
     {
-        private static string driverPath = "https://www.atea.lt/eshop/products/?filters=S_ALL_Products";
         static IWebDriver driver;
-
-
+        static GeneralMethods generalMethods;
         [SetUp]
         public static void SETUP()
         {
@@ -32,36 +30,34 @@ namespace Prasitestavimui
             driver.Url = "https://www.1a.lt";
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
 
-
-            GeneralMethods generalMethods = new GeneralMethods(driver);
-            //generalMethods.ClickElementBy("//a[@class=\"c-button\"]");
+            generalMethods = new GeneralMethods(driver);
+            generalMethods.ClickElementBy("//a[@class=\"c-button\"]");
 
 
         }
-
         [TearDown]
         public static void TearDown()
         {
-            //driver.Quit();
+            driver.Quit();
         }
-
-
         [Test]
-        public static void NavigationTest()
+        public static void CheckProductCardElements()
         {
             TopMenu topMenu = new TopMenu(driver);
             ProductList productList = new ProductList(driver);
+            ProductCard productCard = new ProductCard(driver);
 
             topMenu.SearchByText("iphone 13");
             productList.OpenFirstProduct();
+            productCard.CheckBreadcrumbsCount();
+            generalMethods.CheckElementExistsByID("add_to_cart_btn");
+            generalMethods.CheckElementExistsByID("description-anchor");
+            generalMethods.CheckElementExistsByID("also-bought-vue-wrapper");
         }
 
 
-//
 
-        // Dar kitoks
 
-        //dar vienas
 
     }
 }

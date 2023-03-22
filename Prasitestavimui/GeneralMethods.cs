@@ -26,12 +26,19 @@ namespace Prasitestavimui
             wait.IgnoreExceptionTypes(typeof(NoSuchElementException));
         }
 
-        public void ClickElementBy(string xpath) {
-        
+        public void ClickElementBy(string xpath, string errorMessage) {
+            wait.Message = "Cookie accept button was not found";
+            IWebElement elm = wait.Until(x => x.FindElement(By.XPath(xpath)));
+            IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
+            js.ExecuteScript("arguments[0].scrollIntoView(true);", elm);
+            elm.Click();
+        }
+
+        public void ClickElementBy(string xpath)
+        {
             wait.Message = "Cookie accept button was not found";
             IWebElement elm = wait.Until(x => x.FindElement(By.XPath(xpath)));
             elm.Click();
-
         }
 
         public void ClickElementByJS(string xpath)
